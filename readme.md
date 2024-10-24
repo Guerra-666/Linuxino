@@ -1,6 +1,6 @@
 # Linuxino: Automatic Arduino Environment Setup on Linux
 
-This project is called **Linuxino** and its goal is to automate the setup of the **Arduino** development environment on Linux distributions. It solves common problems such as the manual installation of dependencies, permission issues with device access, and the creation of **udev** rules to make it easier to interact with Arduino boards. **Linuxino** helps streamline the process for developers and hobbyists, saving time and reducing configuration errors.
+This project is called **Linuxino** and its goal is to automate the setup of the **Arduino** development environment on Linux distributions. It solves common problems such as the manual installation of dependencies, permission issues with device access, and the creation of **udev** rules to make it easier to interact with Arduino boards.
 
 ## Table of Contents
 - [Description](#description)
