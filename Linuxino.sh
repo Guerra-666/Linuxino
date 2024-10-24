@@ -36,6 +36,21 @@ prompt_user() {
     fi
 }
 
+# Función para desactivar BRLTTY si es necesario
+disable_brltty() {
+    info_msg "El servicio BRLTTY es para dispositivos de asistencia para personas con discapacidad visual (como terminales braille). A veces puede interferir con dispositivos Arduino."
+
+    prompt_user "¿Disable BRLTTY to avoid conflicts with arduino?"
+    
+    if systemctl is-active --quiet brltty; then
+        systemctl disable brltty && systemctl stop brltty
+        success_msg "BRLTTY has been disable."
+    else
+        info_msg "BRLTTY are disable or its not installed."
+    fi
+}
+
+
 # Check if running as root
 if [[ $EUID -ne 0 ]]; then
    error_msg "This script must be run as root"
@@ -110,5 +125,8 @@ configure_dialout
 
 prompt_user "Do you want to create udev rules for Arduino?"
 setup_udev_rules
+
+#BRLTTY
+disable_brltty
 
 success_msg "Setup complete. To apply changes, log out and log back in."
